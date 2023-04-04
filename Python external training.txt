@@ -1,0 +1,397 @@
+class
+object
+encapsulation
+inheritance--python also supports multiple inheritance
+polymorphism
+abstraction
+
+#create class,object
+class Student:
+    name="xyz"
+    age=20
+ob=Student()
+print(ob.name)
+print(ob.age)
+
+#access variable or method outside the class
+class Student:
+    name="xyz"
+    age=20
+    def greet(self,name):
+        print("Hello ",name)
+ob=Student()
+ob.greet("abc")
+
+#access var or method inside the class
+class Student:
+    name="xyz"
+    age=20
+    def greet(self,name):
+        print("Hello ",self.name)
+ob=Student()
+ob.greet("abc")
+
+#self automatically shifts variable as class variable
+class Student:
+    def __init__(self):
+        self.name="python"
+        print("this is a constructor")
+    def pqr(self):
+        print(self.name)
+ob=Student()
+ob.pqr()
+
+#each object is independent of other
+class Student:
+    def __init__(self,name):
+        self.name=name
+    def pqr(self):
+        print(self.name)
+ob1=Student("var")
+ob2=Student("arsh")
+ob3=Student("vaish")
+ob1.pqr()
+ob2.pqr()
+ob3.pqr()
+
+#same values for 2 objects---array declared in global scope which is being shared
+class Student:
+    a=[]
+    def add_ele(self,value):
+        self.a.append(value)
+    def printt(self):
+        print(self.a)
+ob1=Student()
+ob1.add_ele(1)
+ob1.add_ele(2)
+ob1.add_ele(3)
+ob1.printt()
+ob2=Student()
+ob2.printt()
+
+
+class Student:
+    a=[]
+    def add_ele(self,value):
+        self.a.append(value)
+    def printt(self):
+        print(self.a)
+ob1=Student()
+ob1.add_ele(1)
+ob1.add_ele(2)
+ob1.add_ele(3)
+ob1.printt()
+ob2=Student()
+ob2.add_ele(4)
+ob2.printt()
+
+##solution for above i.e,encapsulation
+class Student:
+    def __init__(self):
+        self.a=[]
+    def add_ele(self,value):
+        self.a.append(value)
+    def printt(self):
+        print(self.a)
+ob1=Student()
+ob1.add_ele(1)
+ob1.add_ele(2)
+ob1.add_ele(3)
+ob1.printt()
+ob2=Student()
+ob2.add_ele(4)
+ob2.printt()
+
+
+#in order to save memory python does give same addresses i.e,shares memory
+#same as above
+a=[1,2,3]
+b=a
+b[0]=10
+print(a)
+print(b)
+#remedy for above problem
+a=[1,2,3]
+b=a.copy()
+b[0]=10
+print(a)
+print(b)
+
+------------------------------------------------------------------
+whenever import is used the that will execute first and then other things
+--------------------------
+##Royalenfield bike showroom
+class Bike:
+    def __init__(self,name,year,model):
+        self.name=name
+        self.year=year
+        self.model=model
+    def getBike(self):
+        return{
+            "name":self.name,
+            "year":self.year,
+            "model":self.model
+            }
+class Manager:
+    def __init__(self):
+        self.bikes=[]
+    def add_bike(self,name,year,model):
+        bike=Bike(name,year,model)
+        self.bikes.append(bike)
+    def buy_bike(self,bike_name):
+        for bike in self.bikes:
+            if bike.name==bike_name:
+                self.bikes.remove(bike)
+                return
+                
+    def print_bikes(self):
+        for bike in self.bikes:
+            print(bike.getBike())
+    def show_bike(self,name):
+        for bike in self.bikes:
+            if bike.name==name:
+                print(bike.getBike())
+                return
+            return None
+        
+ob1=Manager()
+ob1.add_bike('Meteor',2020,360)
+ob1.add_bike('Thunderbird',2022,400)
+ob1.add_bike('Interceptor',2002,600)
+ob1.print_bikes()
+ob1.show_bike('Thunderbird')
+
+===========================================
+Inheritance
+
+#Multiple inheritance which gives parent_class_one in this case
+class Parent_one:
+    def message(self):
+        print("in parent class 1")
+
+class Parent_two:
+    def message(self):
+        print("in parent class 2")
+class Child(Parent_one,Parent_two):
+    pass
+ob=Child()
+ob.message()
+##whatever parent class comes first child takes that class
+#in this case this takes class two
+class Parent_one:
+    def message(self):
+        print("in parent class 1")
+
+class Parent_two:
+    def message(self):
+        print("in parent class 2")
+class Child(Parent_two,Parent_one):
+    pass
+ob=Child()
+ob.message()
+
+
+## multiple + hierararchial inheritance==hybrid
+class Grand1:
+    def message(self):
+        print("in grand1 class")
+class Grand2:
+    def message(self):
+        print("in grand2 class")
+class Parent(Grand1,Grand2):
+    pass
+    '''def message(self):
+        print("in parent class")'''
+class Child1(Parent):
+    pass
+class Child2(Parent):
+    pass
+ob1=Child1()
+ob2=Child2()
+ob1.message()
+ob1.message()
+
+
+
+#SUPER keyword used to access parent or sibling  class
+#check below code and find error
+def parent_one():
+    def message(self):
+        print("in class 1")
+def parent_two():
+    def message(self):
+        super().message()
+        print("in class 2")
+ob=parent_two()
+ob.message()
+
+##no interfaces in python but mimic the concept
+no abstract keyword in python
+
+
+==============================================================
+POLYMORPHISM:
+#METHOD OVERLOADING-COMPILE TIMEPOLYMORPHISM-
+same class,same method,diff.signatures,python accepts latest def of method
+#always considers overriden method i.e,it only accepts latest def of method
+class A:
+    def mess(self):
+        print("mess")
+    def mess(self,data):
+        print("mess data")
+a=A()
+a.mess(10)
+
+#gives argument error as it overwrites
+class A:
+    def mess(self,data):
+        print("mess data")
+    def mess(self):
+        print("mess")
+a=A()
+a.mess(10)
+
+#METHOD OVERRIDING-RUN TIME POLYMORPHISM
+similar to java
+
+-----------------------------------------------------------------------------------------------------
+ABSTRACTION
+##Abstarct class--can't instantiate i.e, can't create an object.So,create a normal class and inherit and write method definition
+#not an abstract class as there is no method def but decleration
+class A:
+    def xyz(self):
+        pass
+o=A()
+A.xyz()
+
+
+###LIBRABY-abc--abstract base class and a class"ABC" inside "abc".So,when class inerits ABC then it is an abstract method and "abstractmethod" for method i.e, mention by @abstractmethod
+Even @overloading annotation works in python and java
+
+#Abstract class and accessing by creating normal class
+#and provide method def that overwrites the method in abstract class
+
+from abc import ABC,abstractmethod
+class Ex(ABC):
+    @abstractmethod
+    def method_one(self):
+        pass
+class St(Ex):
+    def method_one(self):
+        print("Hi")
+o=St()
+o.method_one()
+
+
+#if you give body in abstract method it gives error in java but in python
+#as truly abstarction is not available in python but we use library
+#interpreter cares only about overriding as python is loosely typed
+from abc import ABC,abstractmethod
+class Ex(ABC):
+    @abstractmethod
+    def method_one(self):
+        print("ll")
+class St(Ex):
+    def method_one(self):
+        print("Hi")
+o=St()
+o.method_one()
+
+-------------------------------------------------------------
+TREES ---for specific path
+normal tree has no restrictions
+height::max no. of edges in a path
+root,intermediate,leaf nodes
+Ex:Folders
+
+Avail trees:balanced and combo of binary and binary search
+
+
+Binary trees:parent should have atmost 2 child
+
+Binary search tree: Binary tree in which the adjustment of nodes such that elements on right should be greater than root and elements on left should be less than root
+
+##tree creation
+
+class Node:
+    def __init__(self,value):
+        self.left=None
+        self.data=value
+        self.right=None
+class Tree:
+    def add_ele(self,root,value):
+        new_node=Node(value)
+        if value<root.data:
+            if root.left==None:
+                root.left=new_node
+            else:
+                self.add_ele(root.left,value)
+        else:
+            if root.right==None:
+                root.right=new_node
+            else:
+                self.add_ele(root.right,value)
+            
+root=Node(100)
+
+
+#inorder traversal
+class Node:
+    def __init__(self,value):
+        self.left=None
+        self.data=value
+        self.right=None
+class Tree:
+    def add_ele(self,root,value):
+        new_node=Node(value)
+        if value<root.data:
+            if root.left==None:
+                root.left=new_node
+            else:
+                self.add_ele(root.left,value)
+        else:
+            if root.right==None:
+                root.right=new_node
+            else:
+                self.add_ele(root.right,value)
+def preorder(self,root):
+    if root.left!=None:
+            self.inorder(root.left)
+    print(root.data)
+    if root.right!=None:
+             self.inorder(root.right)
+                print(root.data)
+        new_Node=Node(value)
+        if value<root.data:
+            if root.data==None:
+                root.left=new_Node
+        else:
+            self.add_ele(root.left,value)
+            else:
+                pass
+        if value>root.data:
+            if root.data==None:
+                root.right=new_Node:
+        else:
+            self.add_ele(root.right,value)
+            else:
+                pass
+            
+root=Node(100)
+
+#preorder
+#postorder
+#level order
+#spiral traversal
+
+
+
+
+
+
+
+
+
+
+
+

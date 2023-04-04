@@ -1,0 +1,270 @@
+HTML:::::::::::
+without html:no proper structure
+building a web page with only javascript is difficult
+
+
+Advantages of using HTML:
+no errors using html
+
+
+2 types of data we represent on web::
+meta data--information about the website i.e,description about website
+
+HTML elements categorised:
+inline elements(occupies a line)
+block elements(occupies block)
+
+<head>
+stores info. about website
+
+link is used for packages(icons,fonts etc..) and for path
+
+html has code snippets(Ex-- html:5)
+
+<meta charset="UTF-8">
+charset--character set for encoding i.e, what kind of encoding does website support
+
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+the website is compitable with internet explorer that is edge
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+most important tag of meta that is website is responsive if it automatically adjusts to its screen size i.e, width=device width,initial scale is for the percentage view
+Height depends upon the content
+
+boostrap--for responsive page
+
+<meta name="keywords" content="tarining python dev">
+for search engine optimization i.e, it fetches info. when it is searched
+
+<body>
+content 
+
+<p>this is paragraph tag</p>
+span,anchor,bold,subscript,superscript,media based like image,audio,video etc..
+
+paragraph tag is inline element while bold is block element
+    <p>this is para tag 1</p>
+    <p>this is para tag 2</p>
+    <b>this is bold tag 1</b>
+    <b>this is bold tag 2</b>
+
+size decreases as headers
+    <h1>Heading 1</h1>
+    <h2>Heading 1</h2>
+    <h3>Heading 1</h3>
+    <h4>Heading 1</h4>
+    <h5>Heading 1</h5>
+    <h6>Heading 1</h6>
+    <h7>Heading 1</h7>
+
+italic tag
+<i>Heading 1</i>
+
+hyperlink--href--goes to reference or address by click which is an anchor tag
+<a href="https://google.com">click me</a>
+
+image tag is self closing tag i.e,stand alone element where closing '/' is inside open tag
+src is for source of the image and souce types are url,relative path and images can be converted to data thagt data can be given in souce 
+alt is used for image recognition that gives something other than blank if image doesn't found
+<img src="assets/images/xyz.png" alt="frog" height="500px"/>
+<img src="assets/images/dog.jpg" alt=""/>
+<img src="assets/images/frog.png" alt="" height="500px"/>
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4
+  //8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==" alt="Red dot" />
+Text is too big which is not so efficient for converting it into data
+aspect ratio::based on one dimension other dimension will be adjusted i.e, if height is changed width changes
+image maintains aspect ratio
+it is good to mention only one dimension
+
+Efficient method is store images in ggogle bug or any website nad use the link
+
+Button tag
+<button>
+        hey click me
+</button>
+
+Divison tag--The div tag is used in HTML to make divisions of content in the web page (text, images, header, footer, navigation bar, etc).Block element
+
+Lists-ordered(ol) and unordered(ul)--inside list items(li)
+unoredred list with dots
+<ul>
+        <li>Home</li>
+        <li>About</li>
+        <li> Contact</li>
+</ul>
+unorderd list with squares
+<ul type="square">
+        <li>Home</li>
+        <li>About</li>
+        <li> Contact</li>
+</ul>
+ordered list with I as roman attribute ,we can use diff attributes
+<ol type="I">
+        <li>Home</li>
+        <Li>About</Li>
+</ol>
+
+
+WIREFRAME:skeleton or reference  for creating a website
+
+id and class:::To identify specific component or an element we give identification marks
+in css we have selectors like id and class
+id should be unique while class can be common
+
+
+style="display: flex
+arranges in horizontal
+
+For equal spacing around of contents i.e, place content(we can space evenly, in between,around)
+style="display: flex;place-content:space-around
+
+height:100vh takes full screen
+
+for image to be in center-center(0,0)
+display-flex;justify items-centre;allign-items-centre;
+(or)
+position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+
+allign-items:centre         for vertical centre
+
+position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+for middle allign of content
+transform will apply to the element and moving element by 50% of image
+
+Margin--inside
+Padding--outside
+
+font family--copy from microsoft word
+font-family:family;
+forte,magneto
+
+
+<br> break
+------------------------------------------------------------------------------
+Form elements::
+---------------------------------------------------
+input tag:for input from user
+placeholder:to give a hint to give input for user
+label:for labelling the req.element
+
+input type radio ::i.e, radio elements like MCQ's
+give same name for radio options in order to select only one otherwise give diff.
+
+
+Dropdown:
+<span>
+
+Checkbox:
+
+
+File upload:<input type="file">
+
+DOB,TOB--time acts based on computer format
+
+Range:type--box or marker
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <center>
+            <h1>Form elements</h1>
+
+        </center>
+    </div>
+    <div style="text-align:center;">
+        <label for="user_name">Username:</label>
+        <input id="user_name"type="text" placeholder="Enter name"/>
+    </div>
+    <div style="text-align:center;">
+        <label for="pass">Password:</label>
+        <input id="pass"type="password" placeholder="Enter password"/>
+    </div>
+    <div style="text-align:center;">
+        <label for="Email">Email:</label>
+        <input id="Email"type="email" placeholder="Enter email"/>
+    </div>
+    <div style="text-align:center;">
+        <label for="email">Choose the correct option:</label>
+        <br>
+        <input id=""name="question_1"type="radio"/>option1
+        <input id=""name="question_1"type="radio"/>option2
+        <input id=""name="question_1"type="radio"/>option3
+        <input id=""name="question_1"type="radio"/>option4
+    </div>
+    <div style="text-align:center;">
+        <span>Select a car</span>
+        <select name="cars" id="cars">
+            <option value="volvo">Volvo</option>
+            <option value="saab">Saab</option>
+            <option value="mercedes">Mercedes</option>
+            <option value="audi">Audi</option>
+          </select>
+    </div>
+    <div style="text-align:center;">
+        <p>Select a file to upload</p>
+        <input type="file">
+    </div>
+    <div style="text-align:center;">
+        <p>DOB,TOB</p>
+        <input type="date">
+        <input type="time">
+
+    </div>
+    <div style="text-align:center;">
+        <p>price range</p>
+        <input type="range" min="0" max="1000">
+    </div>
+    <div style="text-align:center;">
+        <p>enter age</p>
+        <input type="number" min="0" max="10">
+    </div>
+    <div style="text-align:center;">
+        <p>Choose a color:</p>
+        <input type="color">
+    </div>
+    <div style="text-align:center;">
+        <p>Write an essay</p>
+        <textarea rows="10">default value</textarea>
+    </div>
+</body>
+</html>
+
+
+
+
+video and audio
+autoplay:plays automatically after loading
+<video height="300px" width="100%: autoplay controls>
+        <source src="path mp4 file"></video>
+<audio src="path to audio file" controls></audio>
+
+
+controls:for pause,play...
+muted:stay muted
+
+
+we can use youtube videos too in our webpage which can be accessed
+
+
+
+
+
+
+.,* and # selectors in css
+. for classes
+# for id
+* for all
+
+
+Bootstrap:Css framework

@@ -1,0 +1,425 @@
+14-03-2023
+----------
+DS:
+Linear DS  :stacks,queues,linked list,double linked list
+Non linear :trees,graphs
+A data structure is a storage that is used to store and organize data.DS is a way of arranging data on a computer so that it can be accessed
+methods:push,pop,peek
+conditions:overflow,underflow
+
+STACK
+=======
+//implementation of stack using arraylist
+import java.util.ArrayList;
+class Stack{
+    ArrayList<Integer> stack=new ArrayList<Integer>();
+    int size=5;
+    public void push(int ele){
+        if(stack.size()==size){
+            System.out.println("Stack is full:overflow");
+        }else{
+            stack.add(ele);
+            }
+    }
+    public void pop(){
+        if(isEmpty()){
+            System.out.println("Stack is empty");
+        }else{
+            stack.remove(stack.size()-1);
+        }
+        
+    }
+    public int peek(){
+        if(!isEmpty()){
+            return stack.get(stack.size()-1);
+        }else{
+            System.out.println("Stack is empty");
+            return -1;
+        }
+    }
+    public boolean isEmpty(){
+        if(stack.size()==0){
+            return true;
+        }
+        return false;
+    }
+    public void printstack(){
+        System.out.println(stack);
+    }
+}
+public class Main
+{
+	public static void main(String[] args) {
+		Stack s=new Stack();
+		s.push(1);
+		s.push(2);
+		s.push(3);
+		s.printstack();
+		s.pop();
+		s.printstack();
+		s.push(0);
+		System.out.println(s.peek());
+		s.printstack();
+		
+	}
+}
+
+===========
+//For reversing elements in the stack,create another stack and pop first stack and add it to new stack
+
+import java.util.ArrayList;
+class Stack{
+    ArrayList<Integer> stack=new ArrayList<Integer>();
+    int size=5;
+    public void push(int ele){
+        if(stack.size()==size){
+            System.out.println("Stack is full:overflow");
+        }else{
+            stack.add(ele);
+            }
+    }
+    public int pop(){
+        if(isEmpty()){
+            System.out.println("Stack is empty");
+            return 0;
+        }
+        else{
+            return stack.remove(stack.size()-1);
+        }
+        
+    }
+    public int peek(){
+        if(!isEmpty()){
+            return stack.get(stack.size()-1);
+        }else{
+            System.out.println("Stack is empty");
+            return -1;
+        }
+    }
+    public boolean isEmpty(){
+        if(stack.size()==0){
+            return true;
+        }
+        return false;
+    }
+    public void printstack(){
+        System.out.println(stack);
+    }
+}
+public class Main
+{
+	public static void main(String[] args) {
+		Stack s=new Stack();
+		s.push(1);
+		s.push(2);
+		s.push(3);
+		s.printstack();
+		Stack revstack=new Stack();
+		revstack.push(s.pop());
+		revstack.push(s.pop());
+		revstack.push(s.pop());
+		s.printstack();
+		revstack.printstack();
+		//System.out.println(revstack);
+		
+		
+	}
+}
+
+----------------------------------------------
+QUEUE
+=====
+removed ele is replaced with "-1"
+
+//Implement queue using ArrayList
+import java.util.ArrayList;
+class Queue{
+    ArrayList<Integer> q=new ArrayList<Integer>();
+    int size=5;
+    public void enqueue(int ele){
+        if(q.size()==size){
+            System.out.println("queue is full:overflow");
+        }else{
+            q.add(ele);
+            }
+    }
+    public void dequeue(){
+        if(isEmpty()){
+            System.out.println("underflow:queue is empty");
+        }else{
+            q.remove(0);
+        }
+        
+    }
+    public boolean isEmpty(){
+        if(q.size()==0){
+            return true;
+        }
+        return false;
+    }
+    public void printqueue(){
+        System.out.println(q);
+    }
+}
+public class Main
+{
+	public static void main(String[] args) {
+		Queue s=new Queue();
+		s.enqueue(1);
+		s.enqueue(2);
+		s.enqueue(3);
+		s.printqueue();
+		s.dequeue();
+		s.printqueue();
+		s.enqueue(0);
+		s.printqueue();
+		
+	}
+}
+
+
+
+//Implement stack using queue
+
+
+q2     q1
+1  
+1      1
+2 1    1 2
+3 2 1  1 2 3
+
+==================================================================
+Linked List-linear DS
+===========
+-data part,address part(pointed to the next node)
+-Random memory can be picked which is not relevant to previous node and allocated to the node.
+-To identify next node location in memory,address is used.
+-Dynamic
+#disadv:
+-accesing an ele is not easy as it has to traverse over the nodes
+-one way traversal
+-insertion and deletion is not easy
+-slower performance
+
+#linkedlist implementation
+class Node{
+    int data;//to store data
+    Node next;//to store next address
+    public Node(int value){//automatically executes when obj is creted--constructor
+        this.data=value;
+        next=null;
+    }
+}
+class Linkedlist{
+    public void add(Node head,int data){
+        Node new_node=new Node(data);
+        Node cur=head;
+        while(cur.next!=null){
+            cur=cur.next;
+        }
+        cur.next=new_node;
+    }
+    public void delete(Node head){
+        Node cur=head;
+        while(cur.next.next!=null){
+            cur=cur.next;
+        }
+        cur.next=null;
+    }
+    public void print(Node head){
+        Node cur=head;
+        while(cur!=null){
+            System.out.println(cur.data+"->");
+            cur=cur.next;
+        }
+        System.out.println();
+    }
+}
+public class Main
+{
+	public static void main(String[] args) {
+	    Linkedlist LL=new Linkedlist();
+	    Node head=new Node(10);
+	    LL.add(head,20);
+	    LL.add(head,30);
+	    LL.add(head,40);
+	    LL.add(head,50);
+	    LL.print(head);
+	    LL.delete(head);
+	    LL.print(head);
+	
+	}
+}
+
+---------------------------------
+##To add an ele at the front of linkedlist
+class Node{
+    int data;//to store data
+    Node next;//to store next address
+    public Node(int value){//automatically executes when obj is creted--constructor
+        this.data=value;
+        next=null;
+    }
+}
+class Linkedlist{
+    public Node addEleAtStart(Node head,int data){
+        Node new_node=new Node(data);
+        Node temp=head;
+        head=new_node;
+        head.next=temp;
+        return head;
+    }
+    public void add(Node head,int data){
+        Node new_node=new Node(data);
+        Node cur=head;
+        while(cur.next!=null){
+            cur=cur.next;
+        }
+        cur.next=new_node;
+    }
+    public void delete(Node head){
+        Node cur=head;
+        while(cur.next.next!=null){
+            cur=cur.next;
+        }
+        cur.next=null;
+    }
+    public void print(Node head){
+        Node cur=head;
+        while(cur!=null){
+            System.out.print(cur.data+"->");
+            cur=cur.next;
+        }
+        System.out.println();
+    }
+}
+public class Main
+{
+	public static void main(String[] args) {
+	    Linkedlist LL=new Linkedlist();
+	    Node head=new Node(10);
+	    LL.add(head,20);
+	    LL.add(head,30);
+	    LL.add(head,40);
+	    LL.add(head,50);
+	    LL.print(head);
+	    LL.delete(head);
+	    LL.print(head);
+	    head=LL.addEleAtStart(head,60);
+	    LL.print(head);
+	}
+}
+
+
+-------------------------------------
+Double Linked List
+Same print,add,delete method but create previous link to current link
+=========================
+class Node{
+    int data;//to store data
+    Node next;//to store next address
+    Node prev;
+    public Node(int value){//automatically executes when obj is creted--constructor
+        this.data=value;
+        next=null;
+        prev=null;
+    }
+}
+class DoubleLinkedlist{
+    public void add(Node head,int data){
+        Node new_node=new Node(data);
+        Node cur=head;
+        while(cur.next!=null){
+            cur=cur.next;
+        }
+        cur.next=new_node;
+        new_node.prev=cur;
+    }
+    public void delete(Node head){
+        Node cur=head;
+        while(cur.next.next!=null){
+            cur=cur.next;
+        }
+        cur.next=null;
+    }
+    public void print(Node head){
+        Node cur=head;
+        while(cur!=null){
+            System.out.print(cur.data+"->");
+            cur=cur.next;
+        }
+        System.out.println();
+    }
+}
+public class Main
+{
+	public static void main(String[] args) {
+	    DoubleLinkedlist DLL=new DoubleLinkedlist();
+	    Node head=new Node(10);
+	    DLL.add(head,20);
+	    DLL.add(head,30);
+	    DLL.add(head,40);
+	    DLL.add(head,50);
+	    DLL.print(head);
+	    DLL.delete(head);
+	    DLL.print(head);
+	    
+	}
+}
+=============================================
+((((((((((((((reverse ele in Linked List)))my code some fault)))))))
+class Node{
+    int data;//to store data
+    Node next;//to store next address
+    public Node(int value){//automatically executes when obj is creted--constructor
+        this.data=value;
+        next=null;
+    }
+}
+class Linkedlist{
+    public void add(Node head,int data){
+        Node new_node=new Node(data);
+        Node cur=head;
+        while(cur.next!=null){
+            cur=cur.next;
+        }
+        cur.next=new_node;
+    }
+    public void print(Node head){
+        Node cur=head;
+        while(cur!=null){
+            System.out.print(cur.data+"->");
+            cur=cur.next;
+        }
+        System.out.println();
+    }
+    public Node reverse(Node head) {
+        Node prev = null;
+        Node current = head;
+        Node next = null;
+        while (current!= null) {
+            next = current.next;
+            current.next = prev;
+            prev = current;
+            current = next;
+        }
+        head = prev;
+        return head;
+    }
+ 
+}
+public class Main
+{
+	public static void main(String[] args) {
+	    Linkedlist LL=new Linkedlist();
+	    Node head=new Node(10);
+	    LL.add(head,20);
+	    LL.add(head,30);
+	    LL.add(head,40);
+	    LL.add(head,50);
+	    LL.print(head);
+	    LL.reverse(head);
+	    LL.print(head);
+	}
+}
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++===

@@ -1,0 +1,1494 @@
+java created in 1995(project 'oak')
+**james gasoling
+object oriented language
+WORA(write onces run anywhere)
+
+JVM(java virtual machine)
+it is a specification that provides a runtime environment in which java bytecode can be executed.
+jvm work to do(loads code,verifies code,executes codes,provides runtime environment)
+
+JRE(java runtime environment)
+>>it is the implementation of jvm
+it physically exists.it contains a set of libraries + other files that JDM uses at runtime
+
+JDK(java development kit)
+
+java data types
+-------------------------------------------------
+value           type        size     range
+-------------------------------------------------
+5		byte         1      -128 to 127
+45		short 	     2	    -32768,32767
+12              int          4         
+67L		long	     8      
+34.2f		float	     4       6 to 7 decimal digits
+36.2		double	     8	     15 decimal digits
+"a"		char	     2        
+true/false	boolean      1       true or false
+"hello"		string	     num of char
+
+***************************************************************************************
+class HelloWorld {
+    public static void main(String[] args) {
+        int a=5 ,b=7,c=9,t=0;
+        if (a>=b && a>=c)t=a;
+        else if(b>=a && b>=c)t=b;
+        else t=c;
+        System.out.println(t);
+     
+    }
+}
+
+**********************************************************************************
+
+// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
+
+class HelloWorld {
+    public static void main(String[] args) {
+        int a=5 ,b=75754,c=9,t=0;
+        System.out.println(Math.max(Math.max(a,b),c));
+     
+    }
+}
+		
+
+*******************************************************************************/
+public class Main
+{
+	public static void main(String[] args) {
+	    byte a=5; String b="3";
+		System.out.print(a+b);
+		 
+	}
+}
+
+*******************************************************************************/
+import java.util.Scanner;
+public class Main
+
+{
+	public static void main(String[] args) 
+	{
+	    Scanner inp=new Scanner(System.in);
+	    System.out.print("enter inputs:");
+	    int a=inp.nextInt(),b=inp.nextInt();
+		System.out.print("sum:"+(a+b));
+		 
+	}
+}
+***********************************************************************************
+inputs                          methods
+___________________________________________________________________________________
+byte				.nextByte()
+short				.nextShort()
+int				.nextInt()
+long				.nextLong()
+float				.nextFloat()
+double				.nextDouble()
+String				.next(){for one word}
+string				.nextLine(){for a line(till \n}
+boolean				.nextBoolean()
+___________________________________________________
+##OOP
+
+1st OOP language                  :    Simula
+1st purely OOP language        :     Smalltalk(1980  created)
+OOP language must contain   :   Classes,Objects,Principles(Abstraction,Encapsulation,Inheritence,PolyMorphism)
+Class                                     :   blueprint for an object
+Object                                    :   instance of the class
+.java                                       :   it is an interface/class
+class not found exception       :   without class in java it gives an error of class not found exception
+default class                           :   Main     or(file name)
+
+__________________________________________________________________________________________________________
+#classes
+
+class IAREstd{int id;String name,branch;}
+public class Main
+{
+	public static void main(String[] args) {
+	    IAREstd s=new IAREstd();
+	    s.id=1;
+	    s.name="iam";
+	    s.branch="x";
+	    System.out.println("id: "+s.id);
+	    System.out.println("name: "+s.name);
+	    System.out.println("branch: "+s.branch);
+	}
+}
+
+output:
+id :   1
+name:   iam
+branch:    x
+
+
+class IAREstd{int id;String name,branch;}
+public class Main
+{
+	public static void main(String[] args) {
+	    IAREstd s=new IAREstd();
+	    s.id=1;
+	    s.name="iam";
+	    s.branch="x";
+	    IAREstd s2=new IAREstd();
+	    s2.id=11;
+	    s2.name="iiiam";
+	    s2.branch="xxx";
+	    
+	    System.out.println(s.id+" "+s.name+" "+s.branch);
+	    System.out.println(s2.id+" "+s2.name+" "+s2.branch);
+	}
+}
+
+Output:
+1 iam x
+11 iiiam xxx
+________________________________________________________________________________________________
+#Arrays
+array is also an object
+new keyword--creates new object
+arr.length--no. of ele in array
+SYNTAX: type arrayname[]=new type[size]
+ITERABLE: A set of values
+ITERATOR:Goes through an iterable
+
+
+class IAREstd{int id;String name,branch;}
+public class Main
+{
+	public static void main(String[] args) {
+	    int a[]=new int[10];
+	    a[0]=10;a[1]=15;a[6]=1000;
+	    for(int i=0;i<a.length;i++){
+	        System.out.print(a[i]+" ");
+	    }
+	}
+}
+o/p:
+10 15 0 0 0 0 1000 0 0 0
+-------------------------------------------------------------
+
+class IAREstd{int id;String name,branch;}
+public class Main
+{
+	public static void main(String[] args) {
+	    int a[]=new int[]{10,100,100,10000,100000};
+	    for(int i=0;i<a.length;i++){
+	        System.out.println("index is:"+i+" "+a[i]+" ");
+	    }
+	}
+}
+o/p:
+index is:0 10 
+index is:1 100 
+index is:2 100 
+index is:3 10000 
+index is:4 100000 
+
+----------------------------------------------------------------
+class IAREstd{int id;String name,branch;}
+public class Main
+{
+	public static void main(String[] args) {
+	    int a[]=new int[]{10,100,100,10000,100000};
+	    for(int i:a){                                        //i-iterator,a-iterable
+	        System.out.print(i+" ");
+	    }
+	}
+}
+o/p:
+10 100 100 10000 100000 
+
+----------------------------------------------------------------------------
+//take input n take n inputs and print
+import java.util.Scanner;
+class IAREstd{int id;String name,branch;}
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner s=new Scanner(System.in);
+	    int n=s.nextInt();
+	    int a[]=new int[n];
+	    for(int i=0;i<n;i++){
+	        a[i]=s.nextInt();
+	    }
+	    for(int i:a){
+	        System.out.print(i+" ");
+	    }
+	}
+}
+i/p::
+5
+1
+2
+3
+4
+5
+o/p::
+1 2 3 4 5 
+
+----------------------------------------------------------------------------------------------------14-02-2023
+###if you use && instead of || output is only 1 . So use || for getting "n" values
+import java.util.Scanner;
+public class Main
+{
+	public static void main(String[] args) {
+		//System.out.println("Hello World");
+		Scanner s=new Scanner(System.in);
+		System.out.println("give n");
+		int n=s.nextInt();
+		for(int i=1;i<n||i%2!=0;i++){
+		    System.out.println(i);
+		}
+	}
+}
+----------------------------------------------------------
+##factors of  a number
+import java.util.Scanner;
+public class Main
+{
+	public static void main(String[] args) {
+		//System.out.println("Hello World");
+		Scanner s=new Scanner(System.in);
+		System.out.println("give n");
+		int n=s.nextInt();
+		for(int i=1;i<=n;i++){
+		    if(n%i==0){
+		        System.out.println(i);
+		    }
+		}
+	}
+}
+
+import java.util.Scanner;
+public class Main
+{
+	public static void main(String[] args) {
+		//System.out.println("Hello World");
+		Scanner s=new Scanner(System.in);
+		System.out.println("give n");
+		int n=s.nextInt();
+		for(int i=1;i<=(int)n/2;i++){
+		    if(n%i==0){
+		        System.out.println(i);
+		    }
+		}
+	}
+}
+------------------------------------------------------------------
+##prime numbers upto 100
+import java.util.Scanner;
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner s=new Scanner(System.in);
+		System.out.println("give n");
+		int i;
+        int n = 1;
+        int x;
+        while (n <= 100) {
+            x= 0;
+            i= 2;
+            while (i<= n / 2) {
+                if (n % i == 0) {
+                    x++;
+                    break;
+                }
+                i++;
+            }
+       if (x== 0 && n != 1) {
+           System.out.print(n + " ");
+       }
+       n++;
+       }
+	}
+}
+#prime check
+import java.util.Scanner;
+import java.lang.Math;
+public class Main
+{
+	public static void main(String[] args) {
+		int n=20;
+		boolean p=true;
+		for(int i=2;i<=(int)Math.sqrt(n);i++){
+		    if(n%i==0){
+		        p=false;
+		        break;
+		    }
+		}
+		if(p){
+		    System.out.println("it is prime");
+		}
+	}
+}
+
+#"n" prime numbers
+import java.util.Scanner;
+import java.lang.Math;
+public class Main
+{
+	public static void main(String[] args) {
+		int n=2;
+		int c=10;
+		while(c>0){
+		    boolean p=true;
+		    for(int i=2;i<=(int)Math.sqrt(n);i++){
+		        if(n%i==0){
+		            p=false;
+		            break;
+		        }
+	     	}
+		    if(p){
+		        System.out.println(n);
+		        c--;
+		    }
+		    n=n+1;
+	     }
+	}
+}
+-------------------------------------------------##strings
+java is a type strict language
+single quote--char
+double quote--string
+"a" is a string
+'a' is a character
+---------------------------------arrays
+no negative indexing  in java(in python we have -ve indexing)
+
+
+
+##array accessing
+--default value if we dont assign value in an index it takes "0"
+import java.util.Scanner;
+import java.lang.Math;
+public class Main
+{
+	public static void main(String[] args) {
+		int arr[]=new int[10];
+		arr[0]=10;
+		arr[3]=20;
+		arr[5]=30;
+		arr[6]=40;
+		arr[7]=50;
+		for(int i=0;i<arr.length;i++){
+		    System.out.println(arr[i]);
+		}
+	}
+}
+
+
+
+import java.util.Scanner;
+import java.lang.Math;
+public class Main
+{
+	public static void main(String[] args) {
+		int arr[]=new int[10];
+		arr[0]=10;
+		arr[3]=20;
+		arr[5]=30;
+		arr[6]=40;
+		arr[7]=50;
+		for(int i:arr){
+		    System.out.println(i);
+		}
+	}
+}
+
+
+--hot coding--arra length as direct number
+
+
+##user array nd print
+import java.util.Scanner;
+import java.lang.Math;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner s=new Scanner(System.in);
+	    System.out.println("give n");
+	    int n=s.nextInt();
+		int arr[]=new int[n];
+		System.out.println("give ele:");
+		for(int i=0;i<n;i++){
+		    arr[i]=s.nextInt();
+		}
+		for(int i:arr){
+		    System.out.println(i);
+		}
+	}
+}
+
+-----------
+import java.util.Scanner;
+import java.lang.Math;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner s=new Scanner(System.in);
+	    System.out.println("give n");
+	    //int n=s.nextInt();
+	    char arr[]={'l','a','v','a','n','y','a'};
+	    //System.out.println("give ele");
+		for(int i=0;i<arr.length;i++){
+		    System.out.println(arr[i]+",");
+		}
+		/*for(char i:arr){
+		    System.out.println(i);
+		}*/
+	}
+}
+--------------------------------------21-02-2023---------------------------Functions
+-----------------------------------------------Object Oriented Programming
+Need:
+
+##creating object
+import java.util.*;
+class Student{
+    int r=10;
+    String name="abc";
+}
+public class Main
+{
+	public static void main(String[] args) {
+	    Student s1=new Student();
+	    Student s2=new Student();
+	    Student s3=new Student();
+	    System.out.println(s1.r);
+	    System.out.println(s2.r);
+	    System.out.println(s3.r);
+	    
+		
+	}
+}
+
+
+#if "static int" is not used create an object for the class
+((((((((((((((((((((((((import java.util.*;
+
+public class Sample{
+	public static int add(int a,int b){
+	    return a+b;
+	}
+	public static void main(String[] args) {
+	    System.out.println(add(a:10,b:20));
+	    
+		
+	}
+})))))))))))))))))))))))))))))))))))))))
+
+
+#class name and file name should be same in java
+#There should be only one public class
+import java.util.*;
+class Student{
+    int r=76;
+    String name="Lavanya";
+}
+
+public class Main{
+	public static int add(int a,int b){
+	    return a+b;
+	}
+	public static void main(String[] args) {
+	    System.out.println("hello");
+	    
+		
+	}
+}
+
+
+
+#always do logics inside a class and call the operations outside the class
+
+import java.util.*;
+class Student{
+    int r=76;
+    String name="Lavanya";
+    public void displayname(){
+        System.out.println(name);
+    }
+}
+
+public class Main{
+	public static void main(String[] args) {
+	    Student s1=new Student();
+	    s1.displayname();
+	    
+		
+	}
+}
+
+
+####hiding access
+import java.util.*;
+class Instagram{
+    String username="lav@iare.com";
+    private String password="123456789";
+}
+
+public class Main{
+	public static void main(String[] args) {
+	    Instagram s1=new Instagram();
+	    System.out.println(s1.username);
+	    System.out.println(s1.password);
+	    
+		
+	}
+}
+
+
+###accessing private variables can be done inside the same class using methods-------
+getter(gets something) and setter(sets a value to something)
+with getters and setters methods we can access private variables,can also used for public variable also.
+
+//For private method,create a public method inside same class and call the original method
+
+import java.util.*;
+class Instagram{
+    String username="lav@iare.com";
+    private String password="123456789";
+    public void updatePassword(String newPassword){
+        password=newPassword;
+    }
+    public String getPassword(){
+        return password;
+    }
+}
+
+public class Main{
+	public static void main(String[] args) {
+	    Instagram s1=new Instagram();
+	    System.out.println(s1.username);
+	    System.out.println(s1.getPassword());
+	    s1.updatePassword("abcdef");
+	    System.out.println(s1.getPassword());
+	    
+	    
+		
+	}
+}
+
+
+##Encapsulation--wrapping properties under single entity
+through 1)classes
+             2)packages
+
+
+#Exception handling
+Using :Try catch
+Try:try to connect to the database
+Catch:If error occurs uses catch
+Finally block: is used for closing the connection.
+Even if have an error, give something without showing error
+
+import java.util.Scanner;
+public class Main{
+    public static void main(String[] args){
+        Scanner sc =new Scanner(System.in);
+        int a=sc.nextInt();
+        int b=sc.nextInt();
+        try{
+            System.out.println(a/b);
+        }catch(Exception e){
+            System.out.println("OOps buddy,you ran into an error");
+        }finally{
+            System.out.println("this is finally block");
+        }
+        System.out.println("program completed");
+        
+    }
+}
+
+
+There we can have more than one "catch" blocks but only 1 "try" block and 1 "finally" block
+#nested try-catch(generally we can have upto 2 nested try's as if more blocks are there we cant determine which catch
+ is for which exception)
+import java.util.Scanner;
+public class Main{
+    public static void main(String[] args){
+        Scanner sc =new Scanner(System.in);
+        int a=sc.nextInt();
+        int b=sc.nextInt();
+        try{
+            System.out.println(a/b);
+            try{
+                
+            }
+            catch(Exception e2){
+                
+            }
+            finally{
+                
+            }
+        }catch(Exception e){
+            System.out.println("OOps buddy,you ran into an error");
+        }finally{
+            System.out.println("this is finally block");
+        }
+        System.out.println("program completed");
+        
+    }
+}
+
+#if an error in line1 it catches by e and when error in line2 ,it is handled by e2
+"'In line3 there is no catch block but if error occurs its is handled by parent catch by e2""
+import java.util.Scanner;
+public class Main{
+    public static void main(String[] args){
+        Scanner sc =new Scanner(System.in);
+        int a=sc.nextInt();
+        int b=sc.nextInt();
+        try{//line1
+            System.out.println(a/b);
+            try{//line2
+                try{//line3
+                    
+                }finally{
+                    
+                }
+                
+            }
+            catch(Exception e2){
+                
+            }
+            finally{
+                
+            }
+        }catch(Exception e){
+            System.out.println("OOps buddy,you ran into an error");
+        }finally{
+            System.out.println("this is finally block");
+        }
+        System.out.println("program completed");
+        
+    }
+}
+
+
+------------------------Constructors
+--Default method executing is the constructor which executes while creating an object---first method to be executed without calling
+has 1>no return types
+       2>name is same as class name
+       3>are public
+multiple constructors can be used but 
+2 types of constructors:
+       default(no argument)
+       parameterized
+                   
+uses of constructors: connecting databases,
+
+class Student{
+    String name="abc";
+    public Student(){
+        System.out.println("obj being created");
+    }
+    public void print_name(){
+        System.out.println(name);
+    }
+}
+
+public class Main
+{
+	public static void main(String[] args) {
+		Student s=new Student();
+		s.print_name();
+	}
+}
+
+
+#multiple constructors
+class Student{
+    String name="abc";
+    public Student(){
+        System.out.println("obj being created-constructor1");
+    }
+    public Student(int a){
+        System.out.println("another constructor");
+    }
+    public void print_name(){
+        System.out.println(name);
+    }
+}
+
+public class Main
+{
+	public static void main(String[] args) {
+		Student s1=new Student();
+		Student s2=new Student(10);
+		
+	}
+}
+
+
+##using "this" keyword inorder to access class variables.
+"this" represents the current invoking object
+javascript also have "this" keyword in which scope changes correspondingly
+class Student{
+    String name;
+    int id;
+    public Student(String n,int i){
+        this.name=n;
+        this.id=i;
+    }
+    public void print_details(){
+        System.out.println("name:"+name+",id:"+id);
+    }
+}
+
+public class Main
+{
+	public static void main(String[] args) {
+		Student s1=new Student("puppy",10);
+		s1.print_details();
+		
+	}
+}
+
+##local and global scopes
+---if local variables are presnt then it prints them otherwise it checks for global
+class Student{
+    String name;
+    int id;
+    public Student(String n,int i){
+        this.name=n;
+        this.id=i;
+    }
+    public void print_details(String name,int id){
+        System.out.println("name:"+name+",id:"+id);
+    }
+}
+
+public class Main
+{
+	public static void main(String[] args) {
+		Student s1=new Student("puppy",10);
+		s1.print_details("Lav",01);
+		
+	}
+}
+----
+class Student{
+    String name;
+    int id;
+    public Student(String n,int i){
+        this.name=n;
+        this.id=i;
+    }
+    public void print_values(){
+        System.out.println("name:"+name+",id:"+id);
+    }
+    public void print_details(String name,int id){
+        System.out.println("name:"+name+",id:"+id);
+    }
+}
+
+public class Main
+{
+	public static void main(String[] args) {
+		Student s1=new Student("puppy",10);
+		s1.print_values();
+		s1.print_details("Lav",01);
+		
+	}
+}
+
+#using this keyword directly access class varaiables
+class Student{
+    String name;
+    int id;
+    public Student(String n,int i){
+        this.name=n;
+        this.id=i;
+    }
+    public void print_values(){
+        System.out.println("name:"+name+",id:"+id);
+    }
+    public void print_details(String name,int id){
+        System.out.println("name:"+this.name+",id:"+this.id);
+    }
+}
+
+public class Main
+{
+	public static void main(String[] args) {
+		Student s1=new Student("puppy",10);
+		s1.print_values();
+		s1.print_details("Lav",01);
+		
+	}
+}
+
+28-02-2023
+-----------------------collection frameworks
+different datatypes and classes
+#in java if we want dynamic array we use "ArrayList" which is a subclass of class "List"
+
+arraylist--size can be dynamic which treats values as objects defaultly so specify class(datatype) using angular braces
+
+import java.util.Scanner;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner sc=new Scanner(System.in);
+	    ArrayList al=new ArrayList();
+	    al.add(100);
+	    al.add(200);
+	    al.add(300);
+	    System.out.println(al);
+	    System.out.println(al.size());
+	    al.remove(1);//index value
+	    System.out.println(al);
+	    System.out.println(al.get(1));
+	    
+		
+	}
+}
+---
+import java.util.Scanner;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner sc=new Scanner(System.in);
+	    ArrayList<Integer> al=new ArrayList<Integer>();
+	    al.add(100);
+	    al.add(200);
+	    al.add(300);
+	    System.out.println(al);
+	    System.out.println(al.size());
+	    al.remove(1);//index value
+	    int a =al.get(1);
+	    System.out.println(al);
+	    System.out.println(al.get(1));
+	    
+		
+	}
+}
+
+-----------------------------------------------------------------------------------------------------------
+
+
+##bike availability(code incomplete)
+
+import java.util.Scanner;
+class Bike{
+    String name;
+    String model;
+    int year;
+    public Bike(String name,int year,String model){
+        this.name=name;
+        this.year=year;
+        this.model=model;
+    }
+    
+}
+class Dealer{
+    Bike b1=new Bike(name:"Meteor",year:2020,model:"360");
+    Bike b2=new Bike(name:"Thunderbird",year:2022,model:"400");
+    Bike b3=new Bike(name:"Interceptor",year:2002,model:"600");
+    Bike arr={b1,b2,b3};
+    public boolean check (Bike b){
+        if arr.contains(b){
+            System.out.println("Bike is available");
+        }
+        else{
+            System.out.println("Bike is not available");
+        }
+    }
+}
+class Retailer{
+    
+}
+
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		
+	}
+}
+
+---------------------------------------------------------------------------------------------------------
+### INHERITANCE
+Types:single level,multi level,hiererichal,multiple,hybrid
+Hybrid-combo of any two or more types
+Java doesn't support multiple inheritance but in python all are supported
+----------------------------------------------------------------
+##Single Level Inheritance(1 parent,1 class)
+class Parent{
+    String name="xyz";
+    public void abc(){
+        System.out.println("welcome for parent");
+    }
+}
+class Child extends Parent{
+    int age=20;
+}
+public class Main
+{
+	public static void main(String[] args) {
+		Child c=new Child();
+		System.out.println(c.name);
+		System.out.println(c.age);
+		c.abc();
+	}
+}
+------------------------------------------------------------------------------
+#MULTILEVEL INHERITANCE(1 parent 1 child,thatchild have another child and so on)
+class A{
+    String name_1="in class A";
+    public void welcome(){
+        System.out.println("welcome for ClassA");
+    }
+}
+class B extends A{
+    String name_2="in class B";
+    public void home(){
+        System.out.println("Welcome for ClassB");
+    }
+}
+class C extends B{
+    String colour="black";
+}
+public class Main
+{
+	public static void main(String[] args) {
+		C c=new C();
+		System.out.println(c.name_1);
+		System.out.println(c.name_2);
+		c.welcome();
+		c.home();
+	}
+}
+
+---if same variables and methods are used then overwrites the data or else if not gives from parent class i.e,
+it check local scope and then for global
+
+-----------------------------------------------------------------
+#Hiererichal inheritance--(one parent,many child)
+class A{
+    String name="in class A";
+    public void home(){
+        System.out.println("welcome for ClassA");
+    }
+}
+class B extends A{
+    String name="in class B";
+    public void home(){
+        System.out.println("Welcome for ClassB");
+    }
+}
+class C extends A{
+    String colour="black";
+}
+public class Main
+{
+	public static void main(String[] args) {
+		C c=new C();
+		System.out.println(c.name);
+		//System.out.println(c.name_2);
+		//c.welcome();
+		c.home();
+	}
+}
+
+class Father{
+    String sname="Lakkakula";
+    public void place(){
+        System.out.println("Jagtial");
+    }
+}
+class Son extends Father{
+    String name="Chandhu";
+    public void college(){
+        System.out.println("Vardhaman");
+    }
+}
+class Daughter extends Father{
+    String name="Lavanya";
+    public void college(){
+        System.out.println("IARE");
+    }
+}
+public class Main
+{
+	public static void main(String[] args) {
+		Son s=new Son();
+		Daughter d=new Daughter();
+		System.out.println(s.name);
+		System.out.println(s.sname);
+		s.place();
+		s.college();
+		System.out.println(d.name);
+		System.out.println(d.sname);
+		d.place();
+		d.college();
+		
+		
+	}
+}
+
+----------------------------------------------------------------------
+#MULTIPLE INHERITANCE
+---DIAMOND PROBLEM--ERROR OCCURS FOR BELOW
+class A{
+    public void welcome(){
+        System.out.println("welcome for parent1");
+    }
+}
+class B{
+    public void welcome(){
+        System.out.println("welcome for parent2");
+    }
+}
+class C extends A,B{
+    
+}
+
+public class Main
+{
+	public static void main(String[] args) {
+		C ob=new C();
+		ob.welcome();
+		
+	}
+}
+
+
+INTERFACES--method don't have a body,only have declaration but not implementation
+should write definition for method
+variables or methods defined in interface should be public,static,final only
+cannot create an instance for an interface i.e,object
+
+Ex:
+interface A{
+    public void welcome();
+    public void something();
+}
+interface B{
+    public void welcome();
+}
+class C implements A,B{
+    public void welcome(){
+        System.out.println("Welcome to Class C");
+    }
+    public void something(){
+        
+    }
+}
+
+public class Main
+{
+	public static void main(String[] args) {
+		C ob=new C();
+		ob.welcome();
+		
+	}
+}
+
+----------------------------------------------------------------------------------------
+#library management system
+import java.util.Scanner;
+class Book{
+    int id;
+    String name;
+    pubilc Book(int id, String name){
+        this.id=id;
+        this.name=name;
+    }
+}
+class Library{
+    ArrayList<Book> books=new ArrayList<Book>();
+    public void add_book(Book b){
+        this.books.add(b);
+    }
+    public boolean check(Book b){
+        for(Book bk:this.books){
+            if(bk.id==b.id)
+            return true;
+        }
+        return false;
+    }
+}
+public void display_books(){
+    System.out.println("The Books are:");
+    for(Book bk:this.books){
+        System.out.println("Book: "+bk.name);
+    }
+}
+public class Main
+{
+	public static void main(String[] args) {
+	    Library lb=new Library();
+	    
+		
+	}
+}
+
+
+import java.util.Scanner;
+class Book{
+    int id;
+    String name;
+    pubilc Book(int id, String name){
+        this.id=id;
+        this.name=name;
+    }
+}
+class Library{
+    ArrayList<Book> books=new ArrayList<Book>();
+    
+    public void add_book(Book b){
+        this.books.add(b);
+    }
+    public boolean check(Book b){
+        for(Book bk:this.books){
+            if(bk.id==b.id)
+            return true;
+        }
+        return false;
+    }
+}
+public void display_books(){
+    System.out.println("The Books are:");
+    for(Book bk:this.books){
+        System.out.println("Book: "+bk.name);
+    }
+}
+public class Main
+{
+	public static void main(String[] args) {
+	    Library lb=new Library();
+	    lb.add(new Book(id:101,name:"python"));
+	    lb.add(new Book(id:102,name:"c"));
+	    lb.add(new Book(id:103,name:"java"));
+	    lb.add(new Book(id:104,name:"c++"));
+	    lb.add(new Book(id:105,name:"sql"));
+	    lb.display_books();
+	    int book_id=103;
+	    System.out.println("Searching book id:"+book_id);
+	    if(lb.check(book_id)){
+	        System.out.println("book is available");
+	    }
+	    else{
+	        System.out.println("book is not available");
+	    }
+    
+	    
+	    
+		
+	}
+}
+
+
+------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------
+##POLYMORPHISM
+one method acts in diff ways
+Types:
+compile time polymorphism---method overloading
+run time polymorphism----method overriding
+--------------------------------------------------------------
+#METHOD OVERLOADING-COMPILE TIME POLYMORPHISM
+class Animal{
+    public int add(int a,int b){
+        return a+b;
+    }
+    public int add(int a,int b,int c){
+        return a+b+c;
+    }
+    public String add(String s1,String s2){
+        return s1+s2;
+    }
+}
+
+
+public class Main
+{
+	public static void main(String[] args) {
+		Animal c=new Animal();
+		System.out.println(c.add(10,20));
+		System.out.println(c.add(10,20,30));
+		System.out.println(c.add("hi","hello"));
+	}
+}
+-------------------------------------------------------------
+
+##METHOD OVERRIDING--RUN TIME POLYMORPHISM
+
+class Animal{
+    public void speak(){
+        System.out.println("Animal can speak");
+    }
+}
+class Dog extends Animal{
+    public void speak(){
+        System.out.println("Dog barks");
+    }
+}
+class Cat extends Animal{
+    public void speak(){
+        System.out.println("Cat says meow");
+    }
+}
+
+public class Main
+{
+	public static void main(String[] args) {
+		Cat c=new Cat();
+		c.speak();
+	}
+}
+
+
+
+class Shape{
+    public void area(){
+        System.out.println("Area is:");
+    }
+}
+class Rectangle extends Shape{
+    public int area(int a,int b){
+        System.out.println(a*b);
+    }
+}
+class Circle extends Shape{
+    public double area(int a){
+       System.out.println(3.14*a*a);
+    }
+}
+class Square extends Shape{
+    public int area(int a){
+        System.out.println(a*a);
+    }
+}
+
+
+public class Main
+{
+	public static void main(String[] args) {
+		Square c=new Square();
+		c.area(10);
+		//System.out.println(c.add(10,20));
+		//System.out.println(c.add(10,20,30));
+		//System.out.println(c.add("hi","hello"));
+	}
+}
+
+
+------------------------------------------------------------------------------------------------------------------------------------------
+##ABSTRACTION--by using 1>abstract class,interfaces and 2>using packages
+hiding critical implementation or
+hiding functionality from end user
+
+#ABSTRACT CLASS--declaration but no body,similar to interface but difference is abstract can have normal methods also.
+//can have final and normal values
+//cannot create an object for abstract also like interface but can be by using sub class
+//can have abstract methods and normal methods
+//keyword-abstarct
+
+
+//provide method definition for child class inheriting from parent class containing abstarct class
+
+abstract class Animal{
+    abstract public void welcome();
+    public void print(){
+        System.out.println("Hello");
+    }
+}
+class Dog extends Animal{
+    public void welcome(){
+        System.out.println("Welcome");
+    }
+}
+
+public class Main
+{
+	public static void main(String[] args) {
+		Dog d=new Dog();
+		d.welcome();
+		d.print();
+	}
+}
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+BUFFEREADER
+throws-predefined exception or sometimes it throws
+throw -our defined exception
+
+-------------------------------------
+#user defined message or throw exception
+import java.io.File;
+import java.io.IOException;
+import java.util.Scanner;
+
+public class Main
+{
+	public static void main(String[] args) throws IOException{
+	    //File ob=new File("path to file");
+	    //Scanner s=new Scanner(System.in);
+	    Scanner s=new Scanner(System.in);
+	    int n=s.nextInt();
+	    try{
+	        if(n<18){
+	            throw new Exception("age under 18");
+	        }
+	         System.out.println("valid age ");
+	    }catch(Exception e){
+	        System.out.println(e.getMessage());
+	    }
+	    
+	    
+		
+	}
+}
+-----------------------------------------------------------------
+#automatic compiler message
+import java.io.File;
+import java.io.IOException;
+import java.util.Scanner;
+
+public class Main
+{
+	public static void main(String[] args) throws IOException{
+	    //File ob=new File("path to file");
+	    //Scanner s=new Scanner(System.in);
+	   // Scanner s=new Scanner(System.in);
+	    //int n=s.nextInt();
+	    try{
+	        int a=10/0;
+	    }catch(Exception e){
+	        System.out.println(e.getMessage());
+	    }
+	    
+	    
+		
+	}
+}
+----------------------------------------------
+##to find where error or exception occurs use printStackTrace()
+import java.io.File;
+import java.io.IOException;
+import java.util.Scanner;
+
+public class Main
+{
+	public static void main(String[] args) throws IOException{
+	    //File ob=new File("path to file");
+	    //Scanner s=new Scanner(System.in);
+	   // Scanner s=new Scanner(System.in);
+	    //int n=s.nextInt();
+	    try{
+	        int a=10/0;
+	    }catch(Exception e){
+	        e.printStackTrace();
+	    }
+	    
+	    
+		
+	}
+}
+
+----------------------------------------------------------------
+Collection frameworks:
+list->ArrayList
+map->HashMap,LinkedHashMap,TreeMap
+set->HashSet,LinkedHashSet,TreeSet
+collection(as Object)
+--------------------------------------------------------
+14-03-2023
+Arraylist--size is dynamic
+import java.util.ArrayList in order to use this
+
+
+import java.util.ArrayList;
+public class Main
+{
+	public static void main(String[] args) {
+		ArrayList<Integer> arr=new ArrayList<Integer>();
+		arr.add(10);
+		arr.add(120);
+		//arr.add("hi");
+		System.out.println(arr);
+		arr.remove(0);
+		System.out.println(arr);
+		System.out.println(arr.get(0));
+		System.out.println(arr.size());
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import java.util.Scanner;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner s=new Scanner(System.in);
+	    System.out.println("enter array size:");
+	    int n=s.nextInt();
+	    int arr[]=new int[n];
+	    System.out.println("enter ele:");
+	    for(int i=0;i<n;i++){
+	        arr[i]=s.nextInt();
+	    }
+	    System.out.println("enter target:");
+	    int x=s.nextInt();
+	    System.out.println(arr);
+	    int b[]=new int[n];
+	    for(int j=0;j<n;j++){
+	        for (int p=0;p<x;p++){
+	            b[p-1]=arr[j];
+	        }
+	    }
+	    System.out.println(arr);
+	    System.out.println(b);
+	}
+}
+
+===========
+Trees
+==========
+inorder   ->left-root-right
+preorder  ->root-left-right
+postorder ->left-right-root
+       10
+    5        15
+2      7 13       17
+inorder  :2,5,7,10,13,15,17
+preorder :10,5,2,7,15,13,17
+postorder:2,7,5,13,17,15,10
+
+
+
+
+
